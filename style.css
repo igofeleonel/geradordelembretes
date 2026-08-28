@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -41,14 +41,17 @@ label {
   margin-bottom: 0.3rem;
 }
 
-input, select, button {
+input,
+select,
+button {
   padding: 0.75rem;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 1rem;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: #4f46e5;
 }
@@ -83,6 +86,7 @@ button:hover {
 
 .card-item {
   background: #ffffff;
+  cursor: pointer;
   padding: 1rem;
   border-radius: 6px;
   border-left: 6px solid #ccc;
@@ -90,12 +94,28 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.card-item:hover {
+  background-color: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 /* Estilos dinâmicos baseados na prioridade */
-.card-item.alta { border-left-color: #ef4444; }
-.card-item.media { border-left-color: #f59e0b; }
-.card-item.baixa { border-left-color: #10b981; }
+.card-item.alta {
+  border-left-color: #ef4444;
+}
+.card-item.media {
+  border-left-color: #f59e0b;
+}
+.card-item.baixa {
+  border-left-color: #10b981;
+}
 
 .btn-deletar {
   background: #fee2e2;
@@ -109,4 +129,56 @@ button:hover {
 
 .btn-deletar:hover {
   background: #fca5a5;
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+body.dark-mode .card-item:hover {
+  background-color: #2a2f3a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode-toggle:hover {
+  background-color: #4338ca;
+}
+
+body.dark-mode {
+  background-color: #1d2028;
+  color: #f0f2f5;
+}
+
+body.dark-mode .card-inputs,
+body.dark-mode .card-item {
+  background-color: #1d2028;
+  color: #f0f2f5;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #1d2028;
+  color: #f0f2f5;
+  border-color: #3a3f4b;
+}
+
+body.dark-mode .card-item {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
